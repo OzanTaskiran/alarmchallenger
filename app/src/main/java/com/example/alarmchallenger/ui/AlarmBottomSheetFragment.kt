@@ -67,6 +67,13 @@ class AlarmBottomSheetFragment : BottomSheetDialogFragment() {
            view.tvselectedTime.text = it
         })
 
+        dialog!!.setOnShowListener { dialog ->
+            val d = dialog as BottomSheetDialog
+            val bottomSheet = d.findViewById<View>(R.id.design_bottom_sheet) as FrameLayout
+            val bottomSheetBehavior = BottomSheetBehavior.from(bottomSheet)
+            bottomSheetBehavior.state = BottomSheetBehavior.STATE_EXPANDED
+        }
+
 
         view.slHour.addOnChangeListener { slider, value, fromUser ->
             var vibrator =  activity!!.getSystemService(Context.VIBRATOR_SERVICE) as Vibrator
