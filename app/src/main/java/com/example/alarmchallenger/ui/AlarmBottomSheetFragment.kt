@@ -52,8 +52,6 @@ class AlarmBottomSheetFragment : BottomSheetDialogFragment() {
 
 
 
-
-
         view.fabAddAlarm.setOnClickListener {
             viewModel.addAlarm(view.etDescription.text.toString(), activity!!)
             view.etDescription.setText("")
