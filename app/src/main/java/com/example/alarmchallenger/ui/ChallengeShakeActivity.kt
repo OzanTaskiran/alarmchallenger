@@ -45,7 +45,7 @@ class ChallengeShakeActivity : AppCompatActivity() {
          maxHeight = displayMetrics.heightPixels
          tickHeight = maxHeight / 100
 
-        challengeShakeViewModel.shakedValue.observe(this, androidx.lifecycle.Observer {
+        challengeShakeViewModel.shakeValue.observe(this, androidx.lifecycle.Observer {
 
             backgroundProgress.updateLayoutParams {
                 height += tickHeight
@@ -67,7 +67,7 @@ class ChallengeShakeActivity : AppCompatActivity() {
 
     private val sensorListener: SensorEventListener = object : SensorEventListener {
         override fun onSensorChanged(event: SensorEvent) {
-            challengeShakeViewModel.calculate(event)
+            challengeShakeViewModel.calculateShake(event)
         }
         override fun onAccuracyChanged(sensor: Sensor, accuracy: Int) {}
     }

@@ -13,12 +13,12 @@ class ChallengeShakeViewModel : ViewModel() {
     private var lastAcceleration = SensorManager.GRAVITY_EARTH
 
 
-    val shakedValue: MutableLiveData<Int> by lazy {
+    val shakeValue: MutableLiveData<Int> by lazy {
         MutableLiveData<Int>(0)
     }
 
 
-    fun calculate(event: SensorEvent){
+    fun calculateShake(event: SensorEvent){
         val x = event.values[0]
         val y = event.values[1]
         val z = event.values[2]
@@ -30,7 +30,7 @@ class ChallengeShakeViewModel : ViewModel() {
         acceleration = acceleration * 0.9f + delta
 
         if (acceleration > 12) {
-           shakedValue.value = shakedValue.value!! + 1
+           shakeValue.value = shakeValue.value!! + 1
         }
 
     }
